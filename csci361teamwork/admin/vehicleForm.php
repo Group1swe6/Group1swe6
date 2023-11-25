@@ -183,7 +183,7 @@
     <main>
         <form method="post" action="add_vehicle.php"> 
             <input type="text" id="make" name="make" placeholder="MAKE"> <br > 
-            <input type="text" id="platenumber" name="platenumber" placeholder="PLATENUMBER"> <br >
+            <input type="text" id="platenumber" name="platenumber" placeholder="PLATE NUMBER"> <br >
             <input type="text" id="model" name="model" placeholder="MODEL"> <br > 
             <input type="number" min="1800" max="2099" id="year" name="year" placeholder="YEAR"> <br > 
             <input type="text" id="sittingcapacity" name="sittingcapacity" placeholder="SITTING CAPACITY"> <br > 

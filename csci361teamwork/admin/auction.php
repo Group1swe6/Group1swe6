@@ -274,10 +274,14 @@
                 echo "<td>$row[plate_number]</td>";
                 echo "<td>$row[mileage]</td>";
                 echo "<td>$row[status_of_auction]</td>";
-                echo "<td>$row[images]</td>";
+                // Convert the binary data to base64 encoded data
+                $imageData = base64_encode($row['images']);
+                // Embed the base64 encoded image data in an <img> tag
+                echo "<td><img src='data:image/jpeg;base64,$imageData' width='100' height='100'></td>";
                 echo "<td><a href='edit_auction.php?auction_id=$row[auction_id]'>Edit</a></td>";
                 echo "<td><a href='delete_auciton.php?auction_id=$row[auction_id]'>Delete</a></td><tr>";
             }
+
             ?>
 
 
@@ -299,19 +303,19 @@
     <aside>
         <img src="image/logo.png" alt="TrackSpirit Logo" class="logo">
         <!-- selected = this webpage (make it bold)-->
-            <a href="welcome.php" class="a1">Welcome</a> 
-            <a href="user.php" class="a1 selected">User Management</a> 
-            <a href="driver.php" class="a2">Driver</a> 
-            <a href="maintenance.php" class="a2">Maintenance Person</a> 
-            <a href="fuelling.php" class="a2">Fuelling Person</a> 
-            <a href="tasks.php" class="a1">Tasks Management</a> 
-            <a href="tasks_maintenance.php" class="a2">Maintenance Tasks</a> 
-            <a href="tasks_fuelling.php" class="a2">Fuelling Tasks</a> 
-            <a href="servicesAdmin.php" class="a1">Routes</a> 
-            <a href="vehicle.php" class="a1">Vehicle</a> 
-            <a href="auction.php" class="a1">Auction</a>
-            <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a>
-            <a href="/csci361teamwork/logout.php" class="a1">Log Out</a>
+        <a href="welcome.php" class="a1">Welcome</a>
+        <a href="user.php" class="a1 selected">User Management</a>
+        <a href="driver.php" class="a2">Driver</a>
+        <a href="maintenance.php" class="a2">Maintenance Person</a>
+        <a href="fuelling.php" class="a2">Fuelling Person</a>
+        <a href="tasks.php" class="a1">Tasks Management</a>
+        <a href="tasks_maintenance.php" class="a2">Maintenance Tasks</a>
+        <a href="tasks_fuelling.php" class="a2">Fuelling Tasks</a>
+        <a href="servicesAdmin.php" class="a1">Routes</a>
+        <a href="vehicle.php" class="a1">Vehicle</a>
+        <a href="auction.php" class="a1">Auction</a>
+        <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a>
+        <a href="/csci361teamwork/logout.php" class="a1">Log Out</a>
     </aside>
     <!-- Create a footer at the bottom of the web page -->
     <footer style="text-align: right;">
