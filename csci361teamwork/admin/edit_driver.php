@@ -176,14 +176,14 @@ $row=mysqli_fetch_array($result);
             <input type="hidden" name="driver_id" value="<?=$row['driver_id']?>">
 
                 <p3 style="color:white; text-align: center; width:50%;">Gov.ID:</p3> <input type="text" id="government_id" name="government_id" value="<?=$row['government_id']?>" required>
-                <p3 style="color:white; text-align: center; width:50%;">Name:</p3> <input type="text" id="name" name="username" value="<?=$row['name']?>" required>
+                <p3 style="color:white; text-align: center; width:50%;">Name:</p3> <input type="text" id="name" name="name" value="<?=$row['name']?>" required>
                 <p3 style="color:white; text-align: center; width:50%;">Surname:</p3> <input type="text" id="surname" name="surname" value="<?=$row['surname']?>" required>
                 <p3 style="color:white; text-align: center; width:50%;">Midname:</p3> <input type="text" id="middle_name" name="middle_name" value="<?=$row['middle_name']?>" required>
                 <p3 style="color:white; text-align: center; width:50%;">Phone:</p3> <input type="text" id="phone" name="phone" value="<?=$row['phone']?>" required>
                 <p3 style="color:white; text-align: center; width:50%;">Email:</p3> <input type="email" id="email" name="email" value="<?=$row['email']?>" required>
                 <p3 style="color:white; text-align: center; width:50%;">Code:</p3> <input type="number" id="driving_license_code" name="driving_license_code" value="<?=$row['driving_license_code']?>" required>
                 <p3 style="color:white; text-align: center; width:50%;">Driver Job:</p3> <input type="text" id="job" name="job" value="<?=$row['job']?>" required>
-                <p3 style="color:white; text-align: center; width:50%;">Address:</p3> <input type="text" id="adress" name="adress" value="<?=$row['address']?>" required>
+                <p3 style="color:white; text-align: center; width:50%;">Address:</p3> <input type="text" id="address" name="address" value="<?=$row['address']?>" required>
                 <input type="submit" class = "Button" value="Edit">
 
         </form>

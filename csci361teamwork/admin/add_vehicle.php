@@ -16,16 +16,17 @@ if (!$link) {
     exit;
 }
 
-$vehicle_id = mysqli_real_escape_string($link, $_POST['vehicle_id']);
+$make = mysqli_real_escape_string($link, $_POST['make']);
 $platenumber = mysqli_real_escape_string($link, $_POST['platenumber']);
 $model = mysqli_real_escape_string($link, $_POST['model']);
 $year = mysqli_real_escape_string($link, $_POST['year']);
 $status = mysqli_real_escape_string($link, $_POST['status']);
+$sittingcapacity = mysqli_real_escape_string($link, $_POST['sittingcapacity']);
 $mileage = mysqli_real_escape_string($link, $_POST['mileage']);
 
 // Inserting data into the vehicles table
-$insertquery = "INSERT INTO vehicle (vehicle_id, plate_number, model, year_of_vehicle, , status_of_auction, mileage) 
-                VALUES ('$vehicle_id', '$platenumber', '$model', '$year', '$, '$status', '$mileage')";
+$insertquery = "INSERT INTO vehicle (make, plate_number, model, year_of_vehicle, sitting_capacity, status_of_vehicle, mileage) 
+                VALUES ('$make', '$platenumber', '$model', '$year', '$sittingcapacity','$status', '$mileage')";
 
 $iquery = mysqli_query($link, $insertquery);
 
