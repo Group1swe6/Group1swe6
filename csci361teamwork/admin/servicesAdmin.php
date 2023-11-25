@@ -49,15 +49,15 @@
         text-align: center;
     }
 
-    th:nth-child(6){
-        color: transparent;
-    }
-
-    th:nth-child(7){
-        color: transparent;
-    }
-
     th:nth-child(8){
+        color: transparent;
+    }
+
+    th:nth-child(9){
+        color: transparent;
+    }
+
+    th:nth-child(10){
         color: transparent;
     }
 
@@ -65,11 +65,11 @@
         color: orange;
     }
     
-    td:nth-child(6) {
+    td:nth-child(7) {
         color: #06FF2E80;
     }
 
-    td:nth-child(7) {
+    td:nth-child(8) {
         color: #FF060680;
     }
 
@@ -215,17 +215,21 @@ $result=$mysqli->query("select * from route");
                 <col />
                 <col />
                 <col />
+                <col />
+                <col />
                 <col style="background-color: #1E1E1E;"/>
                 <col style="background-color: #1E1E1E;"/>
                 <col style="background-color: #1E1E1E;"/>
               </colgroup>
         <!-- Create table heading -->
             <tr> 
-                <th>Service ID</th> 
-                <th>Name</th> 
-                <th>Price</th> 
-                <th>Contradictions</th> 
-                <th>Description</th> 
+                <th>Route ID</th> 
+                <th>Date of Route</th> 
+                <th>Current Location</th> 
+                <th>Start Location</th> 
+                <th>End Location</th> 
+                <th>Status of Route</th> 
+                <th>Driver ID</th> 
                 <th>-</th> 
                 <th>-</th> 
                 <th>-</th> 
@@ -270,8 +274,11 @@ $result=$mysqli->query("select * from route");
             <a href="maintenance.php" class="a2">Maintenance Person</a> 
             <a href="fuelling.php" class="a2">Fuelling Person</a> 
             <a href="tasks.php" class="a1">Tasks Management</a> 
+            <a href="tasks_maintenance.php" class="a2">Maintenance Tasks</a> 
+            <a href="tasks_fuelling.php" class="a2">Fuelling Tasks</a> 
             <a href="servicesAdmin.php" class="a1">Routes</a> 
             <a href="vehicle.php" class="a1">Vehicle</a> 
+            <a href="auction.php" class="a1">Auction</a>
             <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a>
             <a href="/csci361teamwork/logout.php" class="a1">Log Out</a>
         </aside>

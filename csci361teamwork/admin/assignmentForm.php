@@ -165,10 +165,10 @@
     <!-- Create a content area in the center of the web page -->
     <main>
         <form method="post" action="add_assignment.php"> 
-            <input type="id" id="driverid" name="driverid" placeholder="DRIVER ID"> <br >  
-            <input type="id" id="vehicleid" name="vehicleid" placeholder="VEHICLE ID"> <br > 
+            <input type="id" id="driverid" name="driver_id" placeholder="DRIVER ID"> <br >  
+            <input type="id" id="vehicleid" name="vehicle_id" placeholder="VEHICLE ID"> <br > 
  
-            <button class = "Button">Assgin
+            <button class = "Button">Assign
     
         </form> 
     </main> 
@@ -182,8 +182,11 @@
             <a href="maintenance.php" class="a2">Maintenance Person</a> 
             <a href="fuelling.php" class="a2">Fuelling Person</a> 
             <a href="tasks.php" class="a1">Tasks Management</a> 
+            <a href="tasks_maintenance.php" class="a2">Maintenance Tasks</a> 
+            <a href="tasks_fuelling.php" class="a2">Fuelling Tasks</a> 
             <a href="servicesAdmin.php" class="a1">Routes</a> 
             <a href="vehicle.php" class="a1">Vehicle</a> 
+            <a href="auction.php" class="a1">Auction</a>
             <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a>
             <a href="/csci361teamwork/logout.php" class="a1">Log Out</a>
         </aside>

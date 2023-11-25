@@ -49,15 +49,15 @@
         text-align: center;
     }
 
-    th:nth-child(9){
-        color: transparent;
-    }
-
     th:nth-child(10){
         color: transparent;
     }
 
     th:nth-child(11){
+        color: transparent;
+    }
+
+    th:nth-child(12){
         color: transparent;
     }
 
@@ -218,6 +218,7 @@ $result=$mysqli->query("select * from fuelingperson");
                 <col />
                 <col />
                 <col />
+                <col />
                 <col style="background-color: #1E1E1E;"/>
                 <col style="background-color: #1E1E1E;"/>
                 <col style="background-color: #1E1E1E;"/>
@@ -228,10 +229,11 @@ $result=$mysqli->query("select * from fuelingperson");
                 <th>Name</th> 
                 <th>Surname</th> 
                 <th>Middlename</th> 
+                <th>Gov.ID</th> 
                 <th>Email</th> 
                 <th>Phone</th> 
-                <th>Email</th> 
-                <th>Job</th> 
+                <th>Address</th> 
+                <th>Fuel Job ID</th> 
                 <th>-</th> 
                 <th>-</th> 
                 <th>-</th> 
@@ -241,11 +243,15 @@ $result=$mysqli->query("select * from fuelingperson");
                 while ($row=mysqli_fetch_array($result)){ 
                     echo "<tr><td>$row[fuel_person_id]</td>";
                     echo "<td>$row[name]</td>";
-                    echo "<td>$row[phone]</td>";
+                    echo "<td>$row[surname]</td>";
+                    echo "<td>$row[middle_name]</td>";
+                    echo "<td>$row[government_id]</td>";
                     echo "<td>$row[email]</td>";
+                    echo "<td>$row[phone]</td>";
+                    echo "<td>$row[address]</td>";
                     echo "<td>$row[fuel_job_id]</td>";
-                    echo "<td><a href='edit_fuel.php?driver_id=$row[fuel_person_id]'>Edit</a></td>";
-                    echo "<td><a href='delete_fuel.php?driver_id=$row[fuel_person_id]'>Delete</a></td><tr>";
+                    echo "<td><a href='edit_fuel.php?fuel_person_id=$row[fuel_person_id]'>Edit</a></td>";
+                    echo "<td><a href='delete_fuel.php?fuel_person_id=$row[fuel_person_id]'>Delete</a></td><tr>";
                 } 
             ?>
 
@@ -274,8 +280,11 @@ $result=$mysqli->query("select * from fuelingperson");
             <a href="maintenance.php" class="a2">Maintenance Person</a> 
             <a href="fuelling.php" class="a2">Fuelling Person</a> 
             <a href="tasks.php" class="a1">Tasks Management</a> 
+            <a href="tasks_maintenance.php" class="a2">Maintenance Tasks</a> 
+            <a href="tasks_fuelling.php" class="a2">Fuelling Tasks</a> 
             <a href="servicesAdmin.php" class="a1">Routes</a> 
             <a href="vehicle.php" class="a1">Vehicle</a> 
+            <a href="auction.php" class="a1">Auction</a>
             <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a>
             <a href="/csci361teamwork/logout.php" class="a1">Log Out</a>
         </aside>

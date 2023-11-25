@@ -26,87 +26,6 @@
         margin-top: 3%;
     }
 
-    table {
-        width: 100%;
-        height: 100%;
-        margin-top: -10%;
-        background-color: black;
-        border-collapse: collapse;
-        overflow: auto;
-
-    }
-
-        /* Set the table header cell */
-    th {
-        color: white;
-        font-size: 16px;
-        padding: 5px;
-        text-align: center;
-    }
-
-    td{
-        padding: 5px;
-        text-align: center;
-        min-height: 10000px
-    }
-
-    th:nth-child(8){
-        color: transparent;
-    }
-
-    th:nth-child(9){
-        color: transparent;
-    }
-
-    th:nth-child(10){
-        color: transparent;
-    }
-
-    td:first-child {
-        color: orange;
-    }
-
-    td:nth-child(7) {
-        color: orange;
-    }
-    
-    td:nth-child(8) {
-        color: #06FF2E80;
-    }
-
-    td:nth-child(9) {
-        color: #FF060680;
-    }
-
-
-
-    tr{
-        color: grey;
-    }
-
-
-    .text {
-        font-size: 28px;
-        font-weight: lighter;
-        color: #FFBC0F;
-        text-align: center;
-        margin-top: 7%;
-        margin-bottom: 7%;
-    }
-
-    .Active {
-        color: #06FF2E;
-    }
-    .Delayed{
-        color: #FFBC0F;
-    }
-    .Cancelled{
-        color: #FF0606;
-    }
-    .Completed{
-        color: #FFFFFFA8;
-    }
-
     /* Set the style of the content area in the center of the web page */
     main {
         max-width: 100%;
@@ -182,20 +101,6 @@
     .selected{
         font-weight: bold;
     }
-
-    .button {
-        display: block;
-        width: 261px;
-        height: 58px;
-        background: #FFBC0F26;;
-        font-size: 16px;
-        text-align: center;
-        color: white;
-        cursor: pointer;
-        margin:auto;
-        margin-top: 7%;
-
-    }
     .logo {
             display: block;
             margin: 0;
@@ -208,78 +113,17 @@
 
 </head> 
 <body> 
-<?php
-
-$mysqli = new mysqli("localhost", "root", "", "db");
-
-$result=$mysqli->query("select * from task");
-
-?>
     <!-- Create the title bar at the top of the web page -->
     <header> 
 
         <img src="image/personal-page.png" alt="personal page" style="height: 50px; width: 50px; margin-left: 96%;">
- 
+
+        <h1>Welcome to<br >Task Management</h1> 
     </header>
     <!-- Create a content area in the center of the web page -->
     <main>
         <!-- Create text -->
-         <!-- Create text -->
-         <table> 
-            <!-- Initialize table value -->
-            <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-              </colgroup>
-        <!-- Create table heading -->
-            <tr> 
-                <th>Route ID</th> 
-                <th>Date</th> 
-                <th>Start Location</th> 
-                <th>End Location</th> 
-                <th>Description</th> 
-                <th>Status</th> 
-                <th>Driver ID</th>  
-                <th>-</th> 
-                <th>-</th> 
-                <th>-</th> 
-            </tr>
-            <?php
-                while ($row=mysqli_fetch_array($result)){ 
-                    echo "<tr><td>$row[id]</td>";
-                    echo "<td>$row[description]</td>";
-                    echo "<td>$row[driver_id]</td>";
-                    echo "<td>$row[vehicle_id]</td>";
-                    echo "<td>$row[satus_of_task]</td>";
-                    echo "<td>$row[total_time]</td>";
-                    echo "<td><a href='edit_task.php?driver_id=$row[id]'>Edit</a></td>";
-                    echo "<td><a href='delete_task.php?driver_id=$row[id]'>Delete</a></td><tr>";
-                } 
-            ?>
-
-
-
-        </table> 
-        <?php
-            $query = "SELECT * FROM task";
-            $result = executeQuery($query);
-            
-            function executeQuery($query)
-            {
-                $connect = mysqli_connect("localhost", "root", "", "db");
-                $result = mysqli_query($connect, $query);
-                return $result;
-            }
-        ?>
-        <button class = "Button" onclick="window.location.href='tasksForm.php'">Add Task
+        <p>Choose from a list provided in a left sidebar</p>
         </main> 
         <!-- Create a sidebar on the left side of the web page -->
         <aside>
@@ -291,8 +135,11 @@ $result=$mysqli->query("select * from task");
             <a href="maintenance.php" class="a2">Maintenance Person</a> 
             <a href="fuelling.php" class="a2">Fuelling Person</a> 
             <a href="tasks.php" class="a1">Tasks Management</a> 
+            <a href="tasks_maintenance.php" class="a2">Maintenance Tasks</a> 
+            <a href="tasks_fuelling.php" class="a2">Fuelling Tasks</a> 
             <a href="servicesAdmin.php" class="a1">Routes</a> 
             <a href="vehicle.php" class="a1">Vehicle</a> 
+            <a href="auction.php" class="a1">Auction</a>
             <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a>
             <a href="/csci361teamwork/logout.php" class="a1">Log Out</a>
         </aside>

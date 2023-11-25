@@ -164,15 +164,16 @@
     </header>
     <!-- Create a content area in the center of the web page -->
     <main>
-        <form> 
-            <input type="text" id="name" name="username" placeholder="NAME"> <br > 
+        <form method="post" action="add_maint.php"> 
+            <input type="text" id="name" name="name" placeholder="NAME"> <br > 
             <input type="text" id="surname" name="surname" placeholder="SURNAME"> <br >
-            <input type="text" id="middlename" name="middlename" placeholder="MIDDLENAME"> <br > 
-            <input type="text" id="gov.id" name="gov.id" placeholder="GOV.ID"> <br > 
+            <input type="text" id="middle_name" name="middle_name" placeholder="MIDDLENAME"> <br > 
+            <input type="number" id="government_id" name="government_id" placeholder="GOV.ID"> <br > 
             <input type="email" id="email" name="email" placeholder="EMAIL"> <br > 
             <input type="tel" id="phone" name="phone" placeholder="PHONE"> <br >
-            <input type="text" id="job" name="job" placeholder="JOB"> <br >  
-            <button class = "Button">Add User
+            <input type="text" id="address" name="address" placeholder="ADDRESS"> <br > 
+            <input type="text" id="job" name="job" placeholder="JOB"> <br >   
+            <button type = "submit" name="submit" class = "Button" value = "Add Maintenance Person">Add Maintenance Person
     
         </form> 
     </main> 
@@ -186,8 +187,11 @@
             <a href="maintenance.php" class="a2">Maintenance Person</a> 
             <a href="fuelling.php" class="a2">Fuelling Person</a> 
             <a href="tasks.php" class="a1">Tasks Management</a> 
+            <a href="tasks_maintenance.php" class="a2">Maintenance Tasks</a> 
+            <a href="tasks_fuelling.php" class="a2">Fuelling Tasks</a> 
             <a href="servicesAdmin.php" class="a1">Routes</a> 
             <a href="vehicle.php" class="a1">Vehicle</a> 
+            <a href="auction.php" class="a1">Auction</a>
             <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a>
             <a href="/csci361teamwork/logout.php" class="a1">Log Out</a>
         </aside>

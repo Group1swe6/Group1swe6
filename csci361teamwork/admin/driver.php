@@ -232,8 +232,8 @@
                 <th>Email</th> 
                 <th>Phone</th> 
                 <th>Driver license code</th> 
-                <th>Job</th> 
                 <th>Address</th> 
+                <th>Job</th> 
                 <th>-</th> 
                 <th>-</th> 
                 <th>-</th> 
@@ -242,15 +242,15 @@
             <?php
                 while ($row=mysqli_fetch_array($result)){ 
                     echo "<tr><td>$row[driver_id]</td>";
-                    echo "<td>$row[government_id]</td>";
                     echo "<td>$row[name]</td>";
                     echo "<td>$row[surname]</td>";
                     echo "<td>$row[middle_name]</td>";
-                    echo "<td>$row[phone]</td>";
+                    echo "<td>$row[government_id]</td>";
                     echo "<td>$row[email]</td>";
+                    echo "<td>$row[phone]</td>";
                     echo "<td>$row[driving_license_code]</td>";
-                    echo "<td>$row[job]</td>";
                     echo "<td>$row[address]</td>";
+                    echo "<td>$row[job]</td>";
                     echo "<td><a href='edit_driver.php?driver_id=$row[driver_id]'>Edit</a></td>";
                     echo "<td><a href='delete_driver.php?driver_id=$row[driver_id]'>Delete</a></td><tr>";
                 } 
@@ -273,15 +273,18 @@
         <aside>
             <img src="image/logo.png" alt="TrackSpirit Logo" class="logo">
         <!-- selected = this webpage (make it bold)-->
-        <a href="welcome.php" class="a1">Welcome</a> 
+            <a href="welcome.php" class="a1">Welcome</a> 
             <a href="user.php" class="a1 selected">User Management</a> 
             <a href="driver.php" class="a2">Driver</a> 
             <a href="maintenance.php" class="a2">Maintenance Person</a> 
             <a href="fuelling.php" class="a2">Fuelling Person</a> 
             <a href="tasks.php" class="a1">Tasks Management</a> 
+            <a href="tasks_maintenance.php" class="a2">Maintenance Tasks</a> 
+            <a href="tasks_fuelling.php" class="a2">Fuelling Tasks</a> 
             <a href="servicesAdmin.php" class="a1">Routes</a> 
             <a href="vehicle.php" class="a1">Vehicle</a> 
-            <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a> 
+            <a href="auction.php" class="a1">Auction</a>
+            <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a>
             <a href="/csci361teamwork/logout.php" class="a1">Log Out</a>
         </aside>
         <!-- Create a footer at the bottom of the web page -->
