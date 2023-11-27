@@ -207,50 +207,32 @@
         <!-- Create text -->
         <table> 
             <!-- Initialize table background color -->
-            <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-              </colgroup>
         <!-- Create table heading -->
             <tr> 
                 <th>Driver ID</th> 
+                <th>Gov.ID</th> 
                 <th>Name</th> 
                 <th>Surname</th> 
                 <th>Middlename</th> 
-                <th>Gov.ID</th> 
-                <th>Email</th> 
-                <th>Phone</th> 
+                <th>Phone</th>
+                <th>Email</th>  
                 <th>Driver license code</th> 
-                <th>Address</th> 
                 <th>Job</th> 
-                <th>-</th> 
-                <th>-</th> 
-                <th>-</th> 
+                <th>Address</th> 
 
             </tr> 
             <?php
                 while ($row=mysqli_fetch_array($result)){ 
                     echo "<tr><td>$row[driver_id]</td>";
+                    echo "<td>$row[government_id]</td>";
                     echo "<td>$row[name]</td>";
                     echo "<td>$row[surname]</td>";
                     echo "<td>$row[middle_name]</td>";
-                    echo "<td>$row[government_id]</td>";
-                    echo "<td>$row[email]</td>";
                     echo "<td>$row[phone]</td>";
+                    echo "<td>$row[email]</td>";
                     echo "<td>$row[driving_license_code]</td>";
-                    echo "<td>$row[address]</td>";
                     echo "<td>$row[job]</td>";
+                    echo "<td>$row[address]</td>";
                     echo "<td><a href='edit_driver.php?driver_id=$row[driver_id]'>Edit</a></td>";
                     echo "<td><a href='delete_driver.php?driver_id=$row[driver_id]'>Delete</a></td><tr>";
                 } 
