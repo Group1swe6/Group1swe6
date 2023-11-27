@@ -1,26 +1,36 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet">
-  </head>
 <?php
 $mysqli = new mysqli("localhost", "root", "", "db");
-$id=$_GET['vehicle_id'];
-$strSQL ="delete from vehicle WHERE vehicle_id = '$vehicle_id'";
-$result=$mysqli->query($strSQL);
-IF($result){	
-echo "  <div class='container'>
-      <h2>Data was successfully deleted.</h2>
-      <a href='vehicle.php'>Go back to database</a>
-    </div>";
-} ELSE {
-echo "<div class='container'>
-      <h2>Oops! Page not found.</h2>
-      <h1>404</h1>
-      <p>Something went wrong.</p>
-      <a href='vehicle.php'>Go back to database</a>
-    </div>";	
+
+if ($mysqli->connect_errno) {
+    echo "Failed to connect to MySQL: " . $mysqli->connect_error;
+    exit();
 }
+
+if (isset($_GET['vehicle_id'])) {
+    $vehicle_id = $_GET['vehicle_id'];
+
+    // Delete associated records in auction table
+    $deleteAuction = $mysqli->prepare("DELETE FROM auction WHERE vehicle_id = ?");
+    $deleteAuction->bind_param("i", $vehicle_id);
+    $deleteAuction->execute();
+    $deleteAuction->close();
+
+    // Proceed with deleting the vehicle after associated records are deleted
+    $deleteVehicle = $mysqli->prepare("DELETE FROM vehicle WHERE vehicle_id = ?");
+    $deleteVehicle->bind_param("i", $vehicle_id);
+
+    if ($deleteVehicle->execute()) {
+        echo "<script>alert('Successfully deleted');
+              window.location.href = 'vehicle.php';</script>";
+    } else {
+        echo "<script>
+                alert('Cannot be deleted');
+                window.location.href = 'vehicle.php';
+              </script>";
+    }
+
+    $deleteVehicle->close();
+}
+
+$mysqli->close();
 ?>
