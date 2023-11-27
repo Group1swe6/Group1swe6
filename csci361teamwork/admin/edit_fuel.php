@@ -1,11 +1,3 @@
-<?php
-$mysqli = new mysqli("localhost", "root", "", "db");
-$fuel_person_id=$_GET['fuel_person_id'];
-$strSQL ="select * from fuelingperson WHERE fuel_person_id = '$fuel_person_id'";
-$result=$mysqli->query($strSQL);
-$row=mysqli_fetch_array($result);
-?>
-
 <html> 
     <head> 
     <style> 
@@ -172,37 +164,24 @@ $row=mysqli_fetch_array($result);
     </header>
     <!-- Create a content area in the center of the web page -->
     <main>
-    <form method="post" action="edit_fuel_process.php">
-            <input type="hidden" name="fuel_person_id" value="<?=$row['fuel_person_id']?>">
+    <?php
+            $mysqli = new mysqli("localhost", "root", "", "db");
+            $fuel_person_id=$_GET['fuel_person_id'];
+            $strSQL ="select * from fuelingperson WHERE fuel_person_id = '$fuel_person_id'";
+            $result=$mysqli->query($strSQL);
+            $row=mysqli_fetch_array($result);
+            ?>
+            <html>
+            <form method="post" action="edit_fuel_process.php">
+                        <input type="hidden" name="fuel_person_id" value="<?=$row['fuel_person_id']?>">
+                            <p3 style="color:white;">Name:</p3> <input type="text" name="name" value="<?=$row['name']?>" required>
+                            <p3 style="color:white;">Phone:</p3> <input type="text" name="phone" value="<?=$row['phone']?>" required>
+                            <p3 style="color:white;">Email:</p3> <input type="email" name="email" value="<?=$row['email']?>" required>
+                            <p3 style="color:white;">JobID:</p3> <input type="text" name="fuel_job_id" value="<?=$row['fuel_job_id']?>" required>
+                            <input type="submit" class = "Button" value="Edit">
 
-
-                <p3 style="color:white; text-align: center; width:50%;">Name:</p3> <input type="text" id="name" name="username" value="<?=$row['name']?>" required>
-                <p3 style="color:white; text-align: center; width:50%;">Phone:</p3> <input type="text" id="phone" name="phone" value="<?=$row['phone']?>" required>
-                <p3 style="color:white; text-align: center; width:50%;">Email:</p3> <input type="email" id="email" name="email" value="<?=$row['email']?>" required>
-                <p3 style="color:white; text-align: center; width:50%;">JobID:</p3> <input type="text" id="fuel_job_id" name="fuel_job_id" value="<?=$row['fuel_job_id']?>" required>
-                <input type="submit" class = "Button" value="Edit">
-
-        </form>
+                    </form>
     </main> 
-        <!-- Create a sidebar on the left side of the web page -->
-        <aside>
-            <img src="image/logo.png" alt="TrackSpirit Logo" class="logo">
-        <!-- selected = this webpage (make it bold)-->
-        <a href="welcome.php" class="a1">Welcome</a> 
-            <a href="user.php" class="a1 selected">User Management</a> 
-            <a href="driver.php" class="a2">Driver</a> 
-            <a href="maintenance.php" class="a2">Maintenance Person</a> 
-            <a href="fuelling.php" class="a2">Fuelling Person</a> 
-            <a href="tasks.php" class="a1">Tasks Management</a> 
-            <a href="servicesAdmin.php" class="a1">Routes</a> 
-            <a href="vehicle.php" class="a1">Vehicle</a> 
-            <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a> 
-            <a href="/csci361teamwork/logout.php" class="a1">Log Out</a>
-        </aside>
-        <!-- Create a footer at the bottom of the web page -->
-        <footer style="text-align: right;"> 
-            <span> © 2023 TrackSpirit. All rights reserved.</span> 
-            <img src="image/logo.png" alt="TrackSpirit logo"> 
-        </footer> 
+       
     </body> 
     </html>
