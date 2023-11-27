@@ -208,75 +208,55 @@
 <body>
     <?php
 
-    $mysqli = new mysqli("localhost", "root", "", "db");
+$mysqli = new mysqli("localhost", "root", "", "db");
 
-    $result = $mysqli->query("SELECT assignments.assignment_id, 
-                                  assignments.driver_id, 
-                                  assignments.vehicle_id, 
-                                  driver.name, 
-                                  driver.surname
-                           FROM assignments
-                           JOIN driver ON assignments.driver_id = driver.driver_id");
+$result=$mysqli->query("select * from assignments");
 
-    ?>
+?>
     <!-- Create the title bar at the top of the web page -->
-    <header>
+    <header> 
 
         <img src="image/personal-page.png" alt="personal page" style="height: 50px; width: 50px; margin-left: 96%;">
-
+ 
     </header>
     <!-- Create a content area in the center of the web page -->
     <main>
         <!-- Create text -->
-        <!-- Create text -->
-        <table>
+         <!-- Create text -->
+         <table> 
             <!-- Initialize table value -->
-            <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col style="background-color: #1E1E1E;" />
-                <col style="background-color: #1E1E1E;" />
-                <col style="background-color: #1E1E1E;" />
-            </colgroup>
-            <!-- Create table heading -->
-            <tr>
-                <th>Assignment ID</th>
-                <th>Driver ID</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Vehicle ID</th>
-                <th>-</th>
-                <th>-</th>
-                <th>-</th>
+        <!-- Create table heading -->
+            <tr> 
+                <th>Assignment ID</th> 
+                <th>Driver ID</th> 
+                <th>Vehicle ID</th> 
+                <th>Edit</th> 
+                <th>Delete</th> 
+                <th><a href="printout_assignment.php">Print Out</a></th>
 
-            </tr>
+            </tr> 
             <?php
-            while ($row = mysqli_fetch_array($result)) {
-                echo "<tr><td>$row[assignment_id]</td>";
-                echo "<td>$row[driver_id]</td>";
-                echo "<td>$row[name]</td>";
-                echo "<td>$row[surname]</td>";
-                echo "<td>$row[vehicle_id]</td>";
-                echo "<td><a href='edit_assignment.php?assignment_id=$row[assignment_id]'>Edit</a></td>";
-                echo "<td><a href='delete_assignment.php?assignment_id=$row[assignment_id]'>Delete</a></td><tr>";
-            }
+                while ($row=mysqli_fetch_array($result)){ 
+                    echo "<tr><td>$row[assignment_id]</td>";
+                    echo "<td>$row[driver_id]</td>";
+                    echo "<td>$row[vehicle_id]</td>";
+                    echo "<td><a href='edit_assignment.php?assignment_id=$row[assignment_id]'>Edit</a></td>";
+                    echo "<td><a href='delete_assignment.php?assignment_id=$row[assignment_id]'>Delete</a></td><tr>";
+                } 
             ?>
 
 
-        </table>
+        </table> 
         <?php
-        $query = "SELECT * FROM assignments";
-        $result = executeQuery($query);
-
-        function executeQuery($query)
-        {
-            $connect = mysqli_connect("localhost", "root", "", "db");
-            $result = mysqli_query($connect, $query);
-            return $result;
-        }
+            $query = "SELECT * FROM assignments";
+            $result = executeQuery($query);
+            
+            function executeQuery($query)
+            {
+                $connect = mysqli_connect("localhost", "root", "", "db");
+                $result = mysqli_query($connect, $query);
+                return $result;
+            }
         ?>
         <button class="Button" onclick="window.location.href='assignmentForm.php'">Assign
     </main>
