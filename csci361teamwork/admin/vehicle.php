@@ -226,32 +226,18 @@ $result=$mysqli->query("select * from vehicle");
          <!-- Create text -->
          <table> 
             <!-- Initialize table value -->
-            <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-              </colgroup>
         <!-- Create table heading -->
             <tr> 
                 <th>Vehicle ID</th> 
                 <th>Make</th> 
-                <th>Plate Number</th> 
+                <th>Plate</th> 
                 <th>Model</th> 
                 <th>Year</th> 
-                <th>Sitting capacity</th> 
+                <th>Cap.</th> 
                 <th>Status</th> 
                 <th>Mileage</th> 
-                <th>-</th> 
-                <th>-</th> 
-                <th>-</th> 
+                <th>Edit</th> 
+                <th>Delete</th> 
 
             </tr> 
             <?php
