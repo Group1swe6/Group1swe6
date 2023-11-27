@@ -189,7 +189,6 @@
 </style>
 
 </head> 
-<body> 
 <?php
 
 $mysqli = new mysqli("localhost", "root", "", "db");
@@ -209,30 +208,17 @@ $result=$mysqli->query("select * from route");
          <!-- Create text -->
          <table> 
             <!-- Initialize table value -->
-            <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-              </colgroup>
         <!-- Create table heading -->
             <tr> 
-                <th>Route ID</th> 
-                <th>Date of Route</th> 
-                <th>Current Location</th> 
-                <th>Start Location</th> 
-                <th>End Location</th> 
-                <th>Status of Route</th> 
-                <th>Driver ID</th> 
-                <th>-</th> 
-                <th>-</th> 
-                <th>-</th> 
+                <th>RouteID</th> 
+                <th>Date</th> 
+                <th>Curr location</th> 
+                <th>Start</th> 
+                <th>End</th>
+                <th style="color:white;">Status</th> 
+                <th style="color:white;">DriverID</th>  
+                <th style="color:white;">Edit</th> 
+                <th style="color:white;">Delete</th> 
 
             </tr> 
             <?php
@@ -245,23 +231,12 @@ $result=$mysqli->query("select * from route");
                     echo "<td>$row[status_of_route]</td>";
                     echo "<td>$row[driver_id]</td>";
                     echo "<td><a href='edit_route.php?route_id=$row[route_id]'>Edit</a></td>";
-                    echo "<td><a href='delete_route.php?driver_id=$row[route_id]'>Delete</a></td><tr>";
+                    echo "<td><a href='delete_route.php?route_id=$row[route_id]'>Delete</a></td><tr>";
                 } 
             ?>
 
 
         </table> 
-        <?php
-            $query = "SELECT * FROM route";
-            $result = executeQuery($query);
-            
-            function executeQuery($query)
-            {
-                $connect = mysqli_connect("localhost", "root", "", "db");
-                $result = mysqli_query($connect, $query);
-                return $result;
-            }
-        ?>
         <button class = "Button" onclick="window.location.href='servicesForm.php'">Add Route
         </main> 
         <!-- Create a sidebar on the left side of the web page -->
