@@ -209,46 +209,21 @@ $result=$mysqli->query("select * from fuelingperson");
          <!-- Create text -->
          <table> 
             <!-- Initialize table value -->
-            <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-              </colgroup>
         <!-- Create table heading -->
             <tr> 
-                <th>Fueling ID</th> 
+                <th>Fuel ID</th> 
                 <th>Name</th> 
-                <th>Surname</th> 
-                <th>Middlename</th> 
-                <th>Gov.ID</th> 
-                <th>Email</th> 
                 <th>Phone</th> 
-                <th>Address</th> 
-                <th>Fuel Job ID</th> 
-                <th>-</th> 
-                <th>-</th> 
-                <th>-</th> 
+                <th>Email</th> 
+                <th>Job</th> 
 
             </tr> 
             <?php
                 while ($row=mysqli_fetch_array($result)){ 
                     echo "<tr><td>$row[fuel_person_id]</td>";
                     echo "<td>$row[name]</td>";
-                    echo "<td>$row[surname]</td>";
-                    echo "<td>$row[middle_name]</td>";
-                    echo "<td>$row[government_id]</td>";
-                    echo "<td>$row[email]</td>";
                     echo "<td>$row[phone]</td>";
-                    echo "<td>$row[address]</td>";
+                    echo "<td>$row[email]</td>";
                     echo "<td>$row[fuel_job_id]</td>";
                     echo "<td><a href='edit_fuel.php?fuel_person_id=$row[fuel_person_id]'>Edit</a></td>";
                     echo "<td><a href='delete_fuel.php?fuel_person_id=$row[fuel_person_id]'>Delete</a></td><tr>";
@@ -257,17 +232,6 @@ $result=$mysqli->query("select * from fuelingperson");
 
 
         </table> 
-        <?php
-            $query = "SELECT * FROM fuelingperson";
-            $result = executeQuery($query);
-            
-            function executeQuery($query)
-            {
-                $connect = mysqli_connect("localhost", "root", "", "db");
-                $result = mysqli_query($connect, $query);
-                return $result;
-            }
-        ?>
         <button class = "Button" onclick="window.location.href='fuellingForm.php'">Add User
         </main> 
         <!-- Create a sidebar on the left side of the web page -->
