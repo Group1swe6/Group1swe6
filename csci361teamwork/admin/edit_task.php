@@ -1,11 +1,3 @@
-<?php
-$mysqli = new mysqli("localhost", "root", "", "db");
-$id=$_GET['id'];
-$strSQL ="select * from task WHERE id = '$id'";
-$result=$mysqli->query($strSQL);
-$row=mysqli_fetch_array($result);
-?>
-
 <html> 
     <head> 
     <style> 
@@ -172,38 +164,25 @@ $row=mysqli_fetch_array($result);
     </header>
     <!-- Create a content area in the center of the web page -->
     <main>
-    <form method="post" action="edit_task_process.php">
-            <input type="hidden" name="id" value="<?=$row['id']?>">
+    <?php
+            $mysqli = new mysqli("localhost", "root", "", "db");
+            $id=$_GET['id'];
+            $strSQL ="select * from task WHERE id = '$id'";
+            $result=$mysqli->query($strSQL);
+            $row=mysqli_fetch_array($result);
+            ?>
+            <html>
+            <form method="post" action="edit_task_process.php">
+                        <input type="hidden" name="id" value="<?=$row['id']?>">
+                            <p3 style="color:white;">Desc:</p3> <input type="text" name="description" value="<?=$row['description']?>" required>
+                            <p3 style="color:white;">DriverID:</p3> <input type="number" name="driver_id" value="<?=$row['driver_id']?>" required>
+                            <p3 style="color:white;">VehicleID:</p3> <input type="number" name="vehicle_id" value="<?=$row['vehicle_id']?>" required>
+                            <p3 style="color:white;">Status:</p3> <input type="text" name="status_of_task" value="<?=$row['status_of_task']?>" required>
+                            <p3 style="color:white;">Time:</p3> <input type="time" name="total_time" value="<?=$row['total_time']?>" required>
+                            <input type="submit" class = "Button" value="Edit">
 
-
-                <p3 style="color:white; text-align: center; width:50%;">Description:</p3> <input type="text" id="description" name="description" value="<?=$row['description']?>" required>
-                <p3 style="color:white; text-align: center; width:50%;">DriverID:</p3> <input type="text" id="driver_id" name="driver_id" value="<?=$row['driver_id']?>" required>
-                <p3 style="color:white; text-align: center; width:50%;">VehicleID:</p3> <input type="text" id="vehicle_id" name="vehicle_id" value="<?=$row['vehicle_id']?>" required>
-                <p3 style="color:white; text-align: center; width:50%;">Status:</p3> <input type="text" id="status_of_task" name="status_of_task" value="<?=$row['status_of_task']?>" required>
-                <p3 style="color:white; text-align: center; width:50%;">Total Time:</p3> <input type="text" id="total_time" name="total_time" value="<?=$row['total_time']?>" required>
-                <input type="submit" class = "Button" value="Edit">
-
-        </form>
+                    </form>
     </main> 
-        <!-- Create a sidebar on the left side of the web page -->
-        <aside>
-            <img src="image/logo.png" alt="TrackSpirit Logo" class="logo">
-        <!-- selected = this webpage (make it bold)-->
-        <a href="welcome.php" class="a1">Welcome</a> 
-            <a href="user.php" class="a1 selected">User Management</a> 
-            <a href="driver.php" class="a2">Driver</a> 
-            <a href="maintenance.php" class="a2">Maintenance Person</a> 
-            <a href="fuelling.php" class="a2">Fuelling Person</a> 
-            <a href="tasks.php" class="a1">Tasks Management</a> 
-            <a href="servicesAdmin.php" class="a1">Routes</a> 
-            <a href="vehicle.php" class="a1">Vehicle</a> 
-            <a href="assignment.php" class="a1">Driver to Vehicle Assignment</a> 
-            <a href="/csci361teamwork/logout.php" class="a1">Log Out</a>
-        </aside>
-        <!-- Create a footer at the bottom of the web page -->
-        <footer style="text-align: right;"> 
-            <span> © 2023 TrackSpirit. All rights reserved.</span> 
-            <img src="image/logo.png" alt="TrackSpirit logo"> 
-        </footer> 
+       
     </body> 
     </html>
