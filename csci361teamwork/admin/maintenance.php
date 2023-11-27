@@ -209,47 +209,22 @@ $result=$mysqli->query("select * from maintenanceperson");
          <!-- Create text -->
          <table> 
             <!-- Initialize table value -->
-            <colgroup>
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col />
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-                <col style="background-color: #1E1E1E;"/>
-              </colgroup>
         <!-- Create table heading -->
             <tr> 
                 <th>Maintenance ID</th> 
                 <th>Name</th> 
-                <th>Surname</th> 
-                <th>Middlename</th> 
-                <th>Gov.ID</th> 
-                <th>Email</th> 
                 <th>Phone</th> 
-                <th>Address</th> 
-                <th>Maintenance Job Id</th> 
-                <th>-</th>
-                <th>-</th> 
-                <th>-</th> 
+                <th>Email</th> 
+                <th>Job</th> 
 
             </tr> 
             <?php
                 while ($row=mysqli_fetch_array($result)){ 
                     echo "<tr><td>$row[maint_person_id]</td>";
                     echo "<td>$row[name]</td>";
-                    echo "<td>$row[surname]</td>";
-                    echo "<td>$row[middle_name]</td>";
-                    echo "<td>$row[government_id]</td>";
-                    echo "<td>$row[email]</td>";
                     echo "<td>$row[phone]</td>";
-                    echo "<td>$row[address]</td>";
-                    echo "<td>$row[maintenance_job_id]</td>";
+                    echo "<td>$row[email]</td>";
+                    echo "<td>$row[maint_job_id]</td>";
                     echo "<td><a href='edit_maint.php?maint_person_id=$row[maint_person_id]'>Edit</a></td>";
                     echo "<td><a href='delete_maint.php?maint_person_id=$row[maint_person_id]'>Delete</a></td><tr>";
                 } 
